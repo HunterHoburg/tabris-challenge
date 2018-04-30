@@ -5,7 +5,6 @@ var knex = require('../db.js');
 /* Save new workout type. */
 router.post('/save', function(req, res, next) {
   knex('workout_type').insert({
-    user_id: 1,
     type: req.body.type,
     title: req.body.name,
   }).then(function() {

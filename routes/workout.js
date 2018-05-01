@@ -22,6 +22,7 @@ router.post('/save', function(req, res, next) {
 /* GET workout types. */
 router.get('/load', function(req, res, next) {
   knex('workout_type').select().then((workouts) => {
+    // console.log(req);
     res.json({workouts})
   }).catch((err) => {
     console.log('error', err);
@@ -49,7 +50,6 @@ router.post('/log', function(req, res, next) {
 
 // GET workout history.
 router.get('/history', function(req, res, next) {
-  console.log('query', req.query);
   knex('workouts').where({
     workout_id: req.query.workout_id
   }).then(function(history) {
